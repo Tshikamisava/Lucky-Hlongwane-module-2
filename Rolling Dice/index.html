@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #winner {
+            width: 400px;
+            margin: auto;
+            padding: 5px;
+            text-align: center;
+            height: 40px;
+            border-radius: 5px;
+            font-size: 30px;
+            border: 3px solid black;
+
+        }
+        .main {
+            width: 80%;
+            height: 200px;
+            margin: auto;
+            margin-top: 50px;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .main > div {
+            width: 40%;
+            height: 20%;
+            margin: 15px auto;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 15px;
+        }
+        #roll {
+            display: block;
+            margin: auto;
+            margin-top: 50px;
+            color: white;
+            background-color: orangered;
+            padding: 25px 0px;
+            border: none;
+            cursor: pointer;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>MTN APP OF THE YEAR WINNER VOT</h1>
+<div id="winner">winner</div>
+<div class="main">
+    <div id="member-1">Member-1</div>
+    <div id="member-2">Member-2</div>
+    <div id="member-3">Member-3</div>
+</div>
+<button id="roll">ROLL THE DICE</button>
+</body>
+</html>
+
+<script>
+    let max = 0;
+    // document.getElementId("winner").innerText;
+    let dic = {
+        roll: function () {
+            let ranNumber = Math.ceil(Math.random() *6);
+            return ranNumber;
+        },
+    };
+    let dic2 = {
+        roll: function () {
+            let ranNumber = Math.ceil(Math.random() *6);
+            return ranNumber;
+        },
+    };
+    let dic3 = {
+        roll: function () {
+            let ranNumber = Math.ceil(Math.random() *6);
+            return ranNumber;
+        },
+    };
+    function printNumber(number) {
+        let display = document.getElementById("member-1");
+        display.style.backgroundColor = "white";
+        display.innerHTML = number;
+    };
+    function printNumber(number) {
+        let display = document.getElementById("member-2");
+        display.style.backgroundColor = "white";
+        display.innerHTML = number;
+    };
+    function printNumber3(number) {
+        let display = document.getElementById("member-3");
+        display.style.backgroundColor = "white";
+        display.innerHTML = number;
+    };
+
+    let button = document.getElementById("roll");
+
+    button.onclick = function () {
+        let result = dic.roll();
+        let result1 = dic2.roll();
+        let result2 = dic3.roll();
+        printNumber(result);
+        printNumber(result1);
+        printNumber(result2);
+
+        if (result > result1 && result > result2) {
+            let winner = (document.getElementById(
+                "winner"
+            ).innerText = `winner is Best Education solution`);
+            document.getElementById("member-1").style.backgroundColor = "green";
+            document.getElementById("winner").style.color = "green";
+        }
+        if (result < result1 && result < result2) {
+            document.getElementById("member-1").style.backgroundColor = "red";
+        }
+        if (result1 > result && result1 > result2) {
+            document.getElementById("winner").innerText = `winner is Best ealth Solution`;
+
+
+            document.getElementById("winner").style.color = "green";
+            document.getElementById("winner").style.backgroundColor = "pink";
+        }
+        if (result1 < result && result1 < result2) {
+            document.getElementById("member-2").style.backgroundColor = "red";
+        }
+        if (result2 < result && result2 < result1) {
+            max = result;
+            document.getElementById("member-3").style.backgroundColor = "red";
+        }
+        
+        if (result2 > result && result2 > result1) {
+            let winner = (document.getElementById("winner").innerText = 
+            `winner is  Information Services`);
+
+            document.getElementById("winner").style.color = "green";
+            document.getElementById("member-3").style.backgroundColor = "green";
+            max = result2;
+        }
+
+        if (result == result) {
+            document.getElementById("member-3").style.backgroundColor = "blue";
+            document.getElementById("member-1").style.backgroundColor = "blue";
+            if (result1 < result) {
+                let winner = (document.getElementById("winner").innerText  = 
+                `winner is  Best Financial Solution`);
+
+                document.getElementById("member-2").style.backgroundColor = "red";
+            }
+
+        }
+        
+        if (result == result) {
+            document.getElementById("member-2").style.backgroundColor = "blue";
+            document.getElementById("member-3").style.backgroundColor = "blue";
+            if (result1 < result) {
+                let winner = (document.getElementById("winner").innerText  = 
+                `winner is Agricultural Solution  F`);
+
+                document.getElementById("member-1").style.backgroundColor = "red";
+            }
+
+        }
+
+        
+        if (result == result) {
+            document.getElementById("member-1").style.backgroundColor = "blue";
+            document.getElementById("member-2").style.backgroundColor = "blue";
+            if (result1 < result) {
+                let winner = (document.getElementById("winner").innerText  = 
+                `winner is Best Gaming Solution E`);
+
+                document.getElementById("member-3").style.backgroundColor = "red";
+            }
+
+        }
+        if (result2 == result && result2 == result1 && result1 == result){
+            let winner = (document.getElementById("winner").innerText = result1);
+            document.getElementById("member-2").style.backgroundColor = "blue";
+            document.getElementById("member-3").style.backgroundColor = "blue";
+            document.getElementById("member-1").style.backgroundColor = "blue";
+        }
+        if (result < result1 && result1 > result2 && result < result) {
+            document.getElementById("member-3").style.backgroundColor = "yellow";
+        } 
+
+        if (result1 < result2 && result2 > result && result1 < result) {
+            document.getElementById("member-2").style.backgroundColor = "yellow";
+        } 
+
+        if (result < result1 && result1 > result2 && result < result2) {
+            document.getElementById("member-2").style.backgroundColor = "yellow";
+        } 
+
+        if (result < result1 && result1 > result2 && result < result2) {
+            document.getElementById("member-3").style.backgroundColor = "yellow";
+        } 
+        if (result < result1 && result1 > result2 && result < result) {
+            document.getElementById("member-3").style.backgroundColor = "yellow";
+        } 
+        if (result < result1 && result1 > result2 && result < result2) {
+            document.getElementById("member-1").style.backgroundColor = "yellow";
+        } 
+        if (result < result1 && result1 > result2 && result < result2) {
+            document.getElementById("member-3").style.backgroundColor = "red";
+        } 
+        if (result < result1 && result1 > result2 && result < result2) {
+            document.getElementById("member-1").style.backgroundColor = "yellow";
+        } 
+
+        console.log(max);
+    }
+</script>
